@@ -1,13 +1,13 @@
 ### To test the application you have to follow the following steps :-
 
-1.install web server like xampp or wamp  
+1.Install web server like xampp or wamp  
 
-2.put the project on on root directory  
+2.Put the project on on root directory  
 
-3.finally run the project on browser  
+3.Finally run the project on browser  
 
 
-that is all  
+That is all  
 
-chears!  
+Chears!  
 
