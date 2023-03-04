@@ -1,61 +1,36 @@
 <?php
-// Array with names
-// $a[] = "Anna";
-// $a[] = "Brittany";
-// $a[] = "Cinderella";
-// $a[] = "Diana";
-// $a[] = "Eva";
-// $a[] = "Fiona";
-// $a[] = "Gunda";
-// $a[] = "Hege";
-// $a[] = "Inga";
-// $a[] = "Johanna";
-// $a[] = "Kitty";
-// $a[] = "Linda";
-// $a[] = "Nina";
-// $a[] = "Ophelia";
-// $a[] = "Petunia";
-// $a[] = "Amanda";
-// $a[] = "Raquel";
-// $a[] = "Cindy";
-// $a[] = "Doris";
-// $a[] = "Eve";
-// $a[] = "Evita";
-// $a[] = "Sunniva";
-// $a[] = "Tove";
-// $a[] = "Unni";
-// $a[] = "Violet";
-// $a[] = "Liza";
-// $a[] = "Elizabeth";
-// $a[] = "Ellen";
-// $a[] = "Wenche";
-// $a[] = "Vicky";
-$q = $_REQUEST["q"];
+
+
+/* Getting the data from the url and decoding it into an array. */
 $url = "https://jsonplaceholder.typicode.com/comments";
 $data = file_get_contents($url);
 $characters = json_decode($data, true);
 
-// get the q parameter from URL
-// foreach ($characters as $character) {
-//   echo $character['name'] . "+" . "\n";
-// }
+/* Getting the value of the input field. */
+$q = $_REQUEST["q"];
 
-$hint = "";
+/* Setting the value of the variable `` to an empty string. */
+$searchresult = "";
 
-// lookup all hints from array if $q is different from ""
+
+/* Checking if the input is empty. If it is, it will not run the code. */
 if ($q !== "") {
+
+  /* Converting the input to lowercase and getting the length of the input. */
   $q = strtolower($q);
   $len = strlen($q);
+  /* Looping through the array and checking if the input is in the array. If it is, it will add it to
+  the variable ``. */
   foreach ($characters as $character) {
     if (stristr($q, substr($character['name'], 0, $len))) {
-      if ($hint === "") {
-        $hint = "<li>" . $character['name'] . "</li>";
+      if ($searchresult === "") {
+        $searchresult = "<li>" . $character['name'] . "</li>";
       } else {
-        $hint .= "<li>" . $character['name'] . "</li>";
+        $searchresult .= "<li>" . $character['name'] . "</li>";
       }
     }
   }
 }
+/* A ternary operator. It is a shorthand way of writing an if statement. */
 
-// Output "no suggestion" if no hint was found or output correct values
-echo $hint === "" ? "no suggestion" : $hint;
+echo $searchresult === "" ? "no Search Result Found" : $searchresult;
