@@ -1,4 +1,4 @@
-### to test the application you have to follow the following steps :-
+### To test the application you have to follow the following steps :-
 
 1.install web server like xampp or wamp  
 
